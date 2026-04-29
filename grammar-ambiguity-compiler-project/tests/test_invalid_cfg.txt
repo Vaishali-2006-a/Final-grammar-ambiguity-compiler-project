@@ -1,0 +1,42 @@
+Test Cases for Invalid CFG Validation
+======================================
+
+These examples should be REJECTED by the CFG validation:
+
+1. Invalid LHS (lowercase):
+   e -> T
+
+2. Invalid LHS (multiple symbols):
+   E T -> T
+
+3. Nested production on RHS:
+   A -> B -> C
+
+4. Empty alternative:
+   A -> B | | C
+
+5. Empty RHS:
+   A -> 
+
+6. Mixed case LHS:
+   aB -> C
+
+7. LHS with numbers:
+   A1 -> B
+
+8. RHS with special characters:
+   A -> B @ C
+
+Valid CFG examples (should be ACCEPTED):
+
+1. Simple CFG:
+   E -> E + T | T
+
+2. With epsilon:
+   S -> A | e
+
+3. Complex CFG:
+   F -> ( E ) | id
+
+4. Multiple alternatives:
+   S -> A B | C D | e

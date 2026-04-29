@@ -1,0 +1,34 @@
+CFG VALIDATION DEMONSTRATION
+=============================
+
+This document demonstrates the CFG validation that has been implemented.
+
+What the validation checks:
+1. LHS must be a single non-terminal (uppercase letter(s) with optional primes)
+2. RHS must be a sequence of terminals and non-terminals
+3. No nested productions allowed
+4. No empty alternatives allowed
+5. Epsilon (e) is valid as a single alternative
+
+Examples of VALID CFG rules:
+- E -> E + T | T
+- S -> A B | C | e
+- F -> ( E ) | id
+- A' -> B | e
+
+Examples of INVALID CFG rules (will be rejected):
+- e -> T                    (LHS is not a non-terminal)
+- E T -> T                  (LHS has multiple symbols)
+- A -> B -> C               (Nested production on RHS)
+- A -> B | | C              (Empty alternative)
+- A ->                      (Empty RHS)
+- lowercase -> UPPERCASE   (LHS is not a non-terminal)
+
+When invalid CFG rules are entered, the system will display:
+"[!] Invalid CFG grammar rule. Context-Free Grammar must have:
+        - Single non-terminal on left-hand side (uppercase letter(s))
+        - Sequence of terminals and non-terminals on right-hand side
+        - No complex expressions or nested productions
+  [!] Rejected rule: [the invalid rule]"
+
+The grammar will only accept proper CFG format rules.
